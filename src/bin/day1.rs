@@ -28,7 +28,7 @@ fn main() {
 
   // part 1
   if let Some(max) = results.iter().max() {
-    println!("{}", max);
+    println!("part 1: {}", max);
   }
 
   // part 2
@@ -41,5 +41,5 @@ fn main() {
     }
   }
 
-  println!("{}", top3);
+  println!("part 2: {}", top3);
 }
