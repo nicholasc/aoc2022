@@ -1,13 +1,9 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use aoc::get_lines;
 
 fn main() {
-  let file = File::open("data/input-day2.txt").expect("Invalid file");
-  let lines = io::BufReader::new(file).lines();
-
   let mut rounds = Vec::<[u32; 2]>::new();
 
-  for line in lines {
+  for line in get_lines("data/input-day2.txt") {
     if let Ok(data) = line {
       let vec: Vec<&str> = data.split(" ").collect();
 

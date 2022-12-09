@@ -1,23 +1,19 @@
+use aoc::get_lines;
 use std::cmp::Ordering;
-use std::fs::File;
-use std::io::{self, BufRead};
 
 fn get_priority(c: char) -> u32 {
   let code = c as u32;
-  match (code as u32).cmp(&97) {
+  match code.cmp(&97) {
     Ordering::Less => code - 38,
     _ => code - 96,
   }
 }
 
 fn main() {
-  let file = File::open("data/input-day3.txt").expect("Invalid file");
-  let lines = io::BufReader::new(file).lines();
-
   let mut totals: [u32; 2] = [0, 0];
   let mut group = Vec::<String>::new();
 
-  for line in lines {
+  for line in get_lines("data/input-day3.txt") {
     if let Ok(data) = line {
       // part 1
       let (c1, c2) = data.split_at((data.len() / 2) as usize);

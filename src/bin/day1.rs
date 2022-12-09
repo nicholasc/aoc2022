@@ -1,22 +1,16 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use aoc::get_lines;
 
 fn main() {
-  let file = File::open("data/input-day1.txt").expect("Invalid file");
-  let lines = io::BufReader::new(file).lines();
-
   let mut i = 0;
   let mut results = Vec::<u32>::new();
 
-  for line in lines {
+  for line in get_lines("data/input-day1.txt") {
     if let Ok(data) = line {
       let num = data.as_str();
       match num {
-        "" => {
-          i += 1;
-        }
+        "" => i += 1,
         _ => {
-          if i == results.len() {
+          if results.len().eq(&i) {
             results.push(0);
           }
 
