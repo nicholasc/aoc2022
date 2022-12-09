@@ -7,11 +7,7 @@ fn main() {
     if let Ok(data) = line {
       let ranges: Vec<Vec<u32>> = data
         .split(',')
-        .map(|r| {
-          r.split('-')
-            .map(|v| v.parse::<u32>().unwrap())
-            .collect::<Vec<u32>>()
-        })
+        .map(|r| r.split('-').map(|v| v.parse::<u32>().unwrap()).collect())
         .collect();
 
       // part 1
