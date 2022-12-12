@@ -2,10 +2,9 @@ use aoc::get_lines;
 use std::collections::VecDeque;
 
 fn main() {
-  let mut i = 0;
   let mut stacks: [[VecDeque<char>; 9]; 2] = Default::default();
 
-  for line in get_lines("data/input-day5.txt") {
+  for (i, line) in get_lines("data/input-day5.txt").enumerate() {
     if let Ok(data) = line {
       match i {
         i if i < 8 => {
@@ -42,8 +41,6 @@ fn main() {
         }
         _ => {}
       }
-
-      i += 1;
     }
   }
 
