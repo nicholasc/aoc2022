@@ -4,18 +4,16 @@ fn main() {
   let mut i = 0;
   let mut results = Vec::<u32>::new();
 
-  for line in get_lines("data/input-day1.txt") {
-    if let Ok(data) = line {
-      let num = data.as_str();
-      match num {
-        "" => i += 1,
-        _ => {
-          if results.len().eq(&i) {
-            results.push(0);
-          }
-
-          results[i] += num.parse::<u32>().unwrap();
+  for data in get_lines("data/input-day1.txt") {
+    let num = data.as_str();
+    match num {
+      "" => i += 1,
+      _ => {
+        if results.len().eq(&i) {
+          results.push(0);
         }
+
+        results[i] += num.parse::<u32>().unwrap();
       }
     }
   }
